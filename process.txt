@@ -1,0 +1,37 @@
+1. Installing hardhat. Method is written on it's official site. run 'yarn add --dev hardhat' then 'yarn hardhat'
+
+2. run 'yard hardhat --help' to get the options and task available in hardhat. 
+    Command-line options are commands used to pass parameters to a program. These entries, also called command-line switches, can pass along cues for changing various settings or executing commands in an interface.
+    Hardhat's tasks are also work in the similar manner.
+    Every time you're running Hardhat from the command-line, you're running a task. For example, npx hardhat compile is running the compile task. To see the currently available tasks in your project, run npx hardhat. Feel free to explore any task by running npx hardhat help [task].
+
+3. We add plugins of hardhat given by its maker, nomic foundations. Written on official site. It will install lots of dependencies.
+
+4. run 'yarn hardhat' and then create a basic js project to get defualt solidity program, test, tast. Then run 'yarn hardhat compile' for inbuilt program. There you can see artifacts and cache of your program. 
+Artifact is a JSON bundle that contains a lot of useful information related to a contract like the ABI, the contract bytecode, the deployment details, compiler version, etc... So once you compile your program, it get saved here, then anytime you run/deploy program, it uses all imformation from the artifacts.
+More details here :- https://hardhat.org/hardhat-runner/docs/advanced/artifacts
+
+5. To access all the task of hardhat, we can write 'const hre = require("hardhat")'     
+
+6. Running scripts in hardhat is 'yarn hardhat run /scripts/deploy.js' run ke aage joh bhi folder hai. 
+    Ethers in hardhat have many others function and also similar to ether.js.
+    You can declare defualtNetwork in module.exports, and in networks we can create our own network.
+    In our network we need url, accounts, chainId of our blockchian. We can play on local hardhat node too.
+    
+    .deployed() helps us to ensure that our contract is properly deployed and is now ready to interact with further in our script. .deploy() handles the actual deployment whereas .deployed() will wait for block confirmations too by calling deployTransaction.wait() and can also logs error if contract is not deployed  
+
+7. Verification process which we do manually in etherscan, can be done using code automatically. We need 'run' function/interface form HRE and also 'network'.
+    You can check what 'run' needs by running 'yarn hardhat verify --help'
+    Get 'console.log(network)' to see what network returns. And from it we need chainId so that we can just pass Goerli chainId to verify, no other chain.
+
+
+8. IMPORTANT - you can see the use of every dependencies/library of package.json by simply copying their name and search it
+
+9. In test, we use describe, beforeEach, it..they are basically part of mocha framework node.js.. And 'assert', 'should', 'expect' are part of Chai library.
+    To run test 'yarn hardhat test' is the command.
+    If the answer as something like 'promise..' then we need to add await to it.
+
+10. You can create your own task too. 
+
+11. Get the gas reporter use. It run by using 'yarn hardhat test'
+
